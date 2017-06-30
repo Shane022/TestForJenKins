@@ -110,7 +110,7 @@
 				TargetAttributes = {
 					0188B7681F05DC99000B64FC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = D4R6TBYUVQ;
+						DevelopmentTeam = E3V83YJXE3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -271,11 +271,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = D4R6TBYUVQ;
+				DEVELOPMENT_TEAM = E3V83YJXE3;
 				INFOPLIST_FILE = TestForJenkins/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sumavision.TestForJenkins;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sumavision.TestForJenkins;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -284,11 +284,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = D4R6TBYUVQ;
+				DEVELOPMENT_TEAM = E3V83YJXE3;
 				INFOPLIST_FILE = TestForJenkins/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sumavision.TestForJenkins;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sumavision.TestForJenkins;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -312,6 +312,7 @@
 				0188B7821F05DC99000B64FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
