@@ -13,6 +13,10 @@
 		0188B7771F05DC99000B64FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0188B7751F05DC99000B64FC /* Main.storyboard */; };
 		0188B7791F05DC99000B64FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0188B7781F05DC99000B64FC /* Assets.xcassets */; };
 		0188B77C1F05DC99000B64FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0188B77A1F05DC99000B64FC /* LaunchScreen.storyboard */; };
+		01A168C11F4D310D00580FB8 /* UIViewController+viewPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A168C01F4D310D00580FB8 /* UIViewController+viewPath.m */; };
+		01A168C41F4D339500580FB8 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A168C31F4D339500580FB8 /* BViewController.m */; };
+		01A168C71F4D339D00580FB8 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A168C61F4D339D00580FB8 /* CViewController.m */; };
+		01A168CA1F4D504B00580FB8 /* DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A168C91F4D504B00580FB8 /* DViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,14 @@
 		0188B7781F05DC99000B64FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0188B77B1F05DC99000B64FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0188B77D1F05DC99000B64FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01A168BF1F4D310D00580FB8 /* UIViewController+viewPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+viewPath.h"; sourceTree = "<group>"; };
+		01A168C01F4D310D00580FB8 /* UIViewController+viewPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+viewPath.m"; sourceTree = "<group>"; };
+		01A168C21F4D339500580FB8 /* BViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BViewController.h; sourceTree = "<group>"; };
+		01A168C31F4D339500580FB8 /* BViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BViewController.m; sourceTree = "<group>"; };
+		01A168C51F4D339D00580FB8 /* CViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CViewController.h; sourceTree = "<group>"; };
+		01A168C61F4D339D00580FB8 /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
+		01A168C81F4D504B00580FB8 /* DViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DViewController.h; sourceTree = "<group>"; };
+		01A168C91F4D504B00580FB8 /* DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +79,14 @@
 				0188B77A1F05DC99000B64FC /* LaunchScreen.storyboard */,
 				0188B77D1F05DC99000B64FC /* Info.plist */,
 				0188B76C1F05DC99000B64FC /* Supporting Files */,
+				01A168BF1F4D310D00580FB8 /* UIViewController+viewPath.h */,
+				01A168C01F4D310D00580FB8 /* UIViewController+viewPath.m */,
+				01A168C21F4D339500580FB8 /* BViewController.h */,
+				01A168C31F4D339500580FB8 /* BViewController.m */,
+				01A168C51F4D339D00580FB8 /* CViewController.h */,
+				01A168C61F4D339D00580FB8 /* CViewController.m */,
+				01A168C81F4D504B00580FB8 /* DViewController.h */,
+				01A168C91F4D504B00580FB8 /* DViewController.m */,
 			);
 			path = TestForJenkins;
 			sourceTree = "<group>";
@@ -152,7 +172,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0188B7741F05DC99000B64FC /* ViewController.m in Sources */,
+				01A168C11F4D310D00580FB8 /* UIViewController+viewPath.m in Sources */,
+				01A168C71F4D339D00580FB8 /* CViewController.m in Sources */,
 				0188B7711F05DC99000B64FC /* AppDelegate.m in Sources */,
+				01A168C41F4D339500580FB8 /* BViewController.m in Sources */,
+				01A168CA1F4D504B00580FB8 /* DViewController.m in Sources */,
 				0188B76E1F05DC99000B64FC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

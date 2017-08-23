@@ -16,9 +16,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"test for Jenkins");
+    
+    self.navigationItem.title = @"AViewController";
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+}
+
+- (void)dealloc
+{
+    NSLog(@"ViewController dealloc");
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
