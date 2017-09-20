@@ -36,7 +36,7 @@ echo "===profile: ${provisioning_profile}==="
 echo "===commit msg: $1==="
 
 #先清空前一次build
-gym --workspace ${workspace_path} --scheme ${scheme} --clean --configuration ${configuration} --archive_path ${archive_path} --export_method ${export_method} --output_directory ${output_path} --output_name ${ipa_name}
+gym --project ${workspace_path} --scheme ${scheme} --clean --configuration ${configuration} --archive_path ${archive_path} --export_method ${export_method} --output_directory ${output_path} --output_name ${ipa_name}
 
 #判断ipa是否生成 如果没有生成 shell报错=>告知Job构建失败
 if [ -f $ipa_path ]
