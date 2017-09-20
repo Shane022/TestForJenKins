@@ -3,11 +3,6 @@
 #计时
 SECONDS=0
 
-#update Pods
-rm -rf Pods
-rm Podfile.lock
-pod update
-
 #假设脚本放置在与项目相同的路径下
 project_path="$(pwd)"
 #取当前时间字符串添加到文件结尾
