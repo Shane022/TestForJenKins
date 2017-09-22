@@ -15,7 +15,7 @@ configuration="Release"
 #指定项目地址
 workspace_path="$project_path/$scheme.xcodeproj"
 #指定输出路径
-output_path="/Users/dvt04/Dev/ipa"
+output_path="/Users/$(whoami)/Desktop/ipa"
 #指定输出归档文件地址
 archive_path="$output_path/$scheme_${now}.xcarchive"
 #指定输出ipa地址
