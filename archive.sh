@@ -18,9 +18,9 @@ workspace_path="$project_path/$scheme.xcodeproj"
 #指定输出路径
 output_path="/Users/$(whoami)/Desktop/ipa"
 #指定输出归档文件地址
-archive_path="$output_path/$scheme_${now}.xcarchive"
+archive_path="$output_path/$scheme.xcarchive"
 #指定输出ipa地址
-ipa_name="$scheme-${now}.ipa"
+ipa_name="$scheme.ipa"
 #ipa路径
 ipa_path="$output_path/$ipa_name"
 #指定打包所使用的输出方式，目前支持app-store, package, ad-hoc, enterprise, development, 和developer-id，即xcodebuild的method参数
