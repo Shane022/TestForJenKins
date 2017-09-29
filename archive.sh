@@ -6,7 +6,8 @@ SECONDS=0
 #假设脚本放置在与项目相同的路径下
 project_path="$(pwd)"
 #取当前时间字符串添加到文件结尾
-now=$(date +"%Y%m%d%H_%M%S")
+#now=$(date +"%Y%m%d%H_%M%S")
+now=$(data)
 
 #指定项目的scheme名称
 scheme="TestForJenkins"
