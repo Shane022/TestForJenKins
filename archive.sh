@@ -8,6 +8,8 @@ project_path="$(pwd)"
 #取当前时间字符串添加到文件结尾
 #now=$(date +"%Y%m%d%H_%M%S")
 now=$(data)
+#当前用户名
+userName="$(whoami)"
 
 #指定项目的scheme名称
 scheme="TestForJenkins"
@@ -16,7 +18,8 @@ configuration="Release"
 #指定项目地址
 workspace_path="$project_path/$scheme.xcodeproj"
 #指定输出路径
-output_path="/Users/dvt04/Desktop/ipa"
+output_path="/Users/$userName/Desktop/ipa"
+echo "++++++++$output_path"
 #指定输出归档文件地址
 archive_path="$output_path/$scheme.xcarchive"
 #指定输出ipa地址
