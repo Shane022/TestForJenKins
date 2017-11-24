@@ -1,3 +1,4 @@
-测试JenkinsPoll SCM
-测试Jenkins $GIT_COMMIT 
-测试git log
+- 测试JenkinsPoll SCM
+- 测试Jenkins $GIT_COMMIT 
+- 测试git log
+- 测试changeLog
