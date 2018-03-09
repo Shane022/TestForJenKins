@@ -1,0 +1,36 @@
+aef0664 测试使用ruby
+4254a65 added:测试Jenkins上给项目打Tag；
+d9ee55c 测试commit message
+95b7eaf Update TestFile
+08fa58a 测试changelog
+7eb4cbe 删除之前的记录
+73c24b1 changeLog测试
+00ea24b 测试git log
+e0f1c05 测试Jenkins的GIT_COMMIT
+3223ef1 test
+a73dfe0 test
+4f2e7be test
+239ccea test
+0d95663 test
+ffee9a4 test
+98979a8 test
+0f6716d provisioning files manually
+dc42c87 test
+ee8b1dc test
+0777f6d test
+1840f67 1.fastlane init; 2.modified archive.sh
+2c2377c Update archive.sh
+7618d4f Update archive.sh
+65adf20 Add files via upload
+448d618 Delete fastlane_archive.sh
+2171d2a Update README.md
+1f92b7c Update README.md
+8387308 Create fastlane_archive.sh
+07e4f0e Update README.md
+6ebd02a 数据采集之页面访问
+3ae699a m
+672468f modify code sign
+97af593 test
+01cb611 Scheme勾选shared
+b9bcff7 test
+5978ac1 first commit
