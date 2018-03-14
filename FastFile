@@ -1,0 +1,143 @@
+# Customize this file, documentation can be found here:
+# https://docs.fastlane.tools/actions/
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+
+require 'ruby-pinyin'
+
+min_fastlane_version("2.71.1")
+
+default_platform(:ios)
+
+platform :ios do
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    # cocoapods
+    # cocoapods
+  end
+
+  lane :testLane do
+  end
+  
+  #设置bundleId，暂时未想到办法动态获取项目bundleId，因此需要每个项目在自己的fastlane中设置bundleId
+  def getBundleId(projectName)
+  	if projectName.include?"iPhone"
+  		#iPhone
+  		return("iPhone bundleId")
+  	elsif projectName.include?"HD"
+  		#iPad
+  		return("iPad bundleId")
+  	end
+  end
+  
+  #获取路径下.xcodeproj文件，并根据deviceType确定当前项目的scheme
+  def getSchemeName(deviceType)
+  	#获取当前路径（在fastlane文件夹下）
+   	curPath = Dir.getwd
+   	#获取上级路径（去掉当前路径中的文件名fastlane）
+   	parentPath = curPath.split("fastlane")
+   	#搜索上级路径中后缀名为.xcodeproj的文件，并转为数组
+   	a = Dir["#{parentPath[0]}" + "*.xcodeproj"]
+   	#for循环，根据deviceType返回对应的project名称
+   	for file in a do
+   		fileName = (file.gsub("#{parentPath[0]}", "").gsub(".xcodeproj", ""))
+   		if (fileName.include?"iPhone")&&(deviceType == "iPhone")
+   			#iPhone
+   			return(fileName)
+   		elsif (fileName.include?"HD")&&(deviceType == "iPad")
+   			#iPad
+   			return(fileName)
+   		end
+   	end
+  end
+
+  #AppName汉字转拼音（注意：需要安装并引入ruby-pinyin，使用方法如下：https://github.com/janx/ruby-pinyin）
+  def converttoPinyin(appName)
+  	arrStr = PinYin.of_string(appName)
+  	pStr = arrStr.join("")
+  	return(pStr.strip)
+  end
+
+  #构建项目的lane
+  lane :archive do |options|
+
+ 	# ---------------------------------------------------------
+  	#InfoPlistName
+  	infoPlistName = "Info"
+ 	 if options[:deviceType] == "iPad"
+  	infoPlistName = "InfoPlistName"
+  	end
+  	#deviceType
+  	deviceType=options[:deviceType]
+  	#configurationType，release或debug
+  	configurationType=options[:configurationType]
+  	#App scheme
+  	scheme=getSchemeName(options[:deviceType])
+  	#App名称
+  	appName=get_info_plist_value(path: "./#{scheme}/#{infoPlistName}.plist", key: "CFBundleDisplayName")
+  	appName=converttoPinyin(appName)
+  	#BundleId
+  	bundleId=getBundleId(scheme)
+  	#project路径
+  	project="./#{scheme}.xcodeproj"
+  	#App版本
+  	version=get_info_plist_value(path: "./#{scheme}/#{infoPlistName}.plist", key: "CFBundleShortVersionString")
+  	#输出路径
+  	rootPath=Dir.getwd
+  	outPath="#{rootPath}/#{scheme}/#{configurationType}"
+  	#commitVersion
+  	commitVersion=`git rev-list --branches|wc -l`.strip
+  	#输出名称
+  	outputName="#{appName}-#{deviceType}-#{version}(#{commitVersion})-#{bundleId}"
+  	# ---------------------------------------------------------
+
+  	gym(
+  		project:project,
+      	scheme:scheme,
+      	configuration:options[:configuration],
+      	export_method:"app-store",
+      	archive_path:"#{outPath}/#{outputName}.xcarchive",
+      	output_directory:outPath,
+    	output_name:outputName, 
+    	clean:true,
+      	include_bitcode:false,
+  	)
+
+  	# puts("project"+scheme)
+  	puts(appName)
+  	# puts("#{scheme}")
+  	# puts("deviceType")
+  	# puts("configurationType")
+  end
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://docs.fastlane.tools/advanced/#control-configuration-by-lane-and-by-platform
+# All available actions: https://docs.fastlane.tools/actions
+
+# fastlane reports which actions are used. No personal data is recorded.
+# Learn more at https://docs.fastlane.tools/#metrics
