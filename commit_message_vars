@@ -1,1 +1,0 @@
-COMMIT_MESSAGE=export COMMIT_MESSAGE="$(git log)"
