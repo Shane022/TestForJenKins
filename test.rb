@@ -17,7 +17,8 @@ file.close
 
 
 arr = IO.read("222.txt")
-final = /^#([^#]+)/m.match(arr)
+# final = /^#([^#]+)/m.match(arr)
+final = arr.scan /[^#]+/m   
 puts final
 
 # filterChangelog = /#(.+)/.match("#{changelog}")
