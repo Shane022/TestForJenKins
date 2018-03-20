@@ -7,8 +7,13 @@
 project_name=$1
 info_plist_name=Info
 info_plist_path="${project_name}/${info_plist_name}.plist"
+propertiesFileName="properties"
 
-echo $info_plist_path
+if [ ! -d "${propertiesFileName}/" ];then
+mkdir $propertiesFileName
+else
+echo "file exists"
+fi
 
 # 获取commitId
 # 同理获取子模块的commitId
@@ -21,10 +26,10 @@ app_version=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" ${inf
 commit_Id=`git rev-parse --short HEAD`
 commit_version=`git rev-list head | sort | wc -l | awk '{print $1}'`
 project_branch=`git symbolic-ref --short -q HEAD`
-git_changelog=`git log --format='%h | %s | => %d' --oneline $2...$3`
+git_changelog=`git log --format='%s' --oneline $2...$3`
 
-echo "COMMITID=${commit_Id:0:6}" > commitId.txt 
-echo "APP_NAME=${app_Name}" > appName.txt
-echo "APP_VERSION=${app_version}(${commit_version})" > appVersion.txt
-echo "CUR_BRANCH=${project_branch}" > curBranch.txt
-echo "CHANGELOG=${git_changelog}" > gitlog.txt
+echo "COMMITID=${commit_Id:0:6}" > $propertiesFileName/commitId.txt 
+echo "APP_NAME=${app_Name}" > $propertiesFileName/appName.txt
+echo "APP_VERSION=${app_version}(${commit_version})" > $propertiesFileName/appVersion.txt
+echo "CUR_BRANCH=${project_branch}" > $propertiesFileName/curBranch.txt
+echo "CHANGELOG=${git_changelog}" > $propertiesFileName/gitlog.txt
