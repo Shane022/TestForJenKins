@@ -1,0 +1,17 @@
+CHANGELOG=c220434 修改变量存放路径
+df1dfb9 添加获取gitlog处理
+4219653 修改脚本
+a29a75f 修改getAppInfo.sh
+9c82c5a 修改项目名称
+611151e 删除无用文件
+836208e 删除部分测试文件
+e273e07 修改test.rb
+643b18c 测试Jenkins上Inject Env var
+7efcc6e 删除部分文件
+1210bcf 更新readme
+a6f3623 FastFile
+2445381 remove Tag
+aef0664 测试使用ruby
+4254a65 added:测试Jenkins上给项目打Tag；
+d9ee55c 测试commit message
+95b7eaf Update TestFile
