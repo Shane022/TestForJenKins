@@ -1,4 +1,4 @@
-CHANGELOG=c220434 修改变量存放路径
+c220434 修改变量存放路径
 df1dfb9 添加获取gitlog处理
 4219653 修改脚本
 a29a75f 修改getAppInfo.sh

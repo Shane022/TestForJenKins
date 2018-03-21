@@ -28,8 +28,13 @@ commit_version=`git rev-list head | sort | wc -l | awk '{print $1}'`
 project_branch=`git symbolic-ref --short -q HEAD`
 git_changelog=`git log --format='%s' --oneline $2...$3`
 
+# TODO:test
+echo "${git_changelog}" > testchangelog.txt
+echo "CHANGELOG=$(cat testchangelog.txt)" > gitlog.txt
+
+
 echo "COMMITID=${commit_Id:0:6}" > $propertiesFileName/commitId.txt 
 echo "APP_NAME=${app_Name}" > $propertiesFileName/appName.txt
 echo "APP_VERSION=${app_version}(${commit_version})" > $propertiesFileName/appVersion.txt
 echo "CUR_BRANCH=${project_branch}" > $propertiesFileName/curBranch.txt
-echo "CHANGELOG=${git_changelog}" > $propertiesFileName/gitlog.txt
+# echo "CHANGELOG=${git_changelog}" > $propertiesFileName/gitlog.txt
