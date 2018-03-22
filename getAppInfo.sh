@@ -26,7 +26,7 @@ app_version=`/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" ${inf
 commit_Id=`git rev-parse --short HEAD`
 commit_version=`git rev-list head | sort | wc -l | awk '{print $1}'`
 project_branch=`git symbolic-ref --short -q HEAD`
-git_changelog=`git log --pretty=format:"%s" --oneline $2...$3`
+git_changelog=`git log --pretty=format:"%s" $2...$3`
 
 echo "COMMITID=${commit_Id:0:6}" > $propertiesFileName/commitId.txt 
 echo "APP_NAME=${app_Name}" > $propertiesFileName/appName.txt
