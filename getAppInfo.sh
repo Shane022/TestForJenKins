@@ -32,4 +32,4 @@ echo "COMMITID=${commit_Id:0:6}" > $propertiesFileName/commitId.txt
 echo "APP_NAME=${app_Name}" > $propertiesFileName/appName.txt
 echo "APP_VERSION=${app_version}(${commit_version})" > $propertiesFileName/appVersion.txt
 echo "CUR_BRANCH=${project_branch}" > $propertiesFileName/curBranch.txt
-echo "CHANGELOG=\"${git_changelog}\"" > $propertiesFileName/gitlog.txt
+echo "CHANGELOG=${git_changelog}" > $propertiesFileName/gitlog.txt
