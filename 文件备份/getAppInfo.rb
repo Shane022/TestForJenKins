@@ -8,9 +8,6 @@ require 'FileUtils'
 # $*[2] end tag
 
 # ******************************************
-curFilePath =`pwd`
-dirName = "jenkins_env_properties"
-
 project_name=$*[0]
 info_plist_name="Info"
 info_plist_path="#{project_name}/#{info_plist_name}.plist"
@@ -24,7 +21,8 @@ project_branch=`git symbolic-ref --short -q HEAD`
 git_changelog=`git log --pretty=format:"%s" #{$*[1]}...#{$*[2]}`
 
 # 创建Jenkins环境变量文件夹
-FileUtils.mkpath 'jenkins_env_properties'
+FileUtils.mkpath 'jenkins_properties'
+dirName = "jenkins_properties"
 # ******************************************
 # Git log 
 file = File.open("#{dirName}/gitlog.txt","w+")
