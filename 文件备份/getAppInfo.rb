@@ -28,17 +28,35 @@ dirName = "jenkins_properties"
 # ******************************************
 
 # Git log ----------------------------------
+# 摘出不包含#bugId的log
+strLog = git_changelog.gsub(/#[0-9].+/, "")
+arrLog = strLog.split("\n")
 # 摘出bugId
-arr = git_changelog.scan /[^#]+/m   
-finalGitLog = arr.join(",")
+strBugId = git_changelog.tr(strLog, "")
+arrBugId = strBugId.scan(/([^#]+)/)
+
+# 遍历数组
+finalGitLog = ""
+for i in arrLog do
+	finalGitLog += "- #{i}<br>"
+end
+
+for i in arrBugId do
+	if 	i.is_a? Array
+		finalGitLog += "- #{i[0]}<br>"		
+	else
+		finalGitLog += "- #{i}<br>"		
+	end
+end
+
 file = File.open("#{dirName}/gitlog.txt","w+")
-file.syswrite("#{finalGitLog}")
+file.syswrite("CHANGELOG=#{finalGitLog}")
 file.close
 # 将changelog的换行符替换为<br>标签
-changelog = `cat #{dirName}/gitlog.txt | awk '{printf "%s<br>",$1}'`
-file = File.open("#{dirName}/gitlog.txt","w+")
-file.syswrite("CHANGELOG=#{changelog}")
-file.close
+# changelog = `cat #{dirName}/gitlog.txt`
+# file = File.open("#{dirName}/gitlog.txt","w+")
+# file.syswrite("CHANGELOG=#{changelog}")
+# file.close
 
 # Commit Id ----------------------------------
 commitId = "#{commit_Id}"[0,6]
