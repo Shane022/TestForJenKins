@@ -21,19 +21,33 @@ commit_version=`git rev-list head | sort | wc -l | awk '{print $1}'`
 project_branch=`git symbolic-ref --short -q HEAD`
 git_changelog=`git log --pretty=format:"%s" #{$*[1]}...#{$*[2]}`
 
+# 获取bundleId，需要先修改FastFile输出archive包的路径
+# cd到archive包路径，从arhive包的info.plist里获取bundleId
+
 # 创建Jenkins环境变量文件夹
 FileUtils.mkpath 'jenkins_properties'
 dirName = "jenkins_properties"
 
 # ******************************************
 
+# TODO:test
+git_changelog = "[#123456]修改了bug,[#23]大角湾\n测试 说明;[#394]这是啥\n哇哇哇哇"
+#
+
 # Git log ----------------------------------
 # 摘出不包含#bugId的log
-strLog = git_changelog.gsub(/#[0-9].+/, "")
+# strLog = git_changelog.gsub(/#[0-9].+/, "")
+strLog = git_changelog.gsub(/(\[#).+/, " ")
+strLog = strLog.lstrip
 arrLog = strLog.split("\n")
 # 摘出bugId
 strBugId = git_changelog.tr(strLog, "")
-arrBugId = strBugId.scan(/([^#]+)/)
+# arrBugId = strBugId.scan(/([^#]+)/)
+# arrBugId = strBugId.scan(/\[([^\[]+)/)
+arrBugId = strBugId.gsub(/\[([^\[]+)/).to_a
+
+# print arrBugId
+# puts "-------- #{strBugId}"
 
 # 遍历数组
 finalGitLog = ""
@@ -48,6 +62,8 @@ for i in arrBugId do
 		finalGitLog += "- #{i}<br>"		
 	end
 end
+
+print finalGitLog
 
 file = File.open("#{dirName}/gitlog.txt","w+")
 file.syswrite("CHANGELOG=#{finalGitLog}")
