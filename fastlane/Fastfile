@@ -43,8 +43,8 @@ platform :ios do |options|
   lane :test do |options|
     # scan
     workspace = options[:workspace]
-    project = "#{workspace}/#{scheme}.xcodeproj"
     scheme = "TestForJenkins"
+    project = "#{workspace}/#{scheme}.xcodeproj"
 
     Dir.chdir(workspace)
     FileUtils.mkpath 'ipa'
