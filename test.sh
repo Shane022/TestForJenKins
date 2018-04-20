@@ -20,4 +20,4 @@ for file in $files; do
 	fi
 done
 
-fir --no-open --qrcode --password=123456 publish $ipaName
+fir publish $ipaName --no-open --qrcode --password=123456
