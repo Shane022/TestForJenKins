@@ -11,6 +11,8 @@
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
+require 'FileUtils'
+
 fastlane_version "2.64.0"
 
 default_platform :ios
@@ -20,7 +22,7 @@ platform :ios do |options|
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
     # cocoapods
     # carthage
-    PROJECT=options[:project]
+    # PROJECT=options[:project]
   end
 
 
@@ -37,12 +39,28 @@ platform :ios do |options|
   		)
   end
 
-  desc "Runs all the tests"
+  # desc "Runs all the tests"
   lane :test do |options|
     # scan
-    commitVersion=`git rev-list --all|wc -l`
-  	puts(commitVersion)
-  	puts($PROJECT)
+    workspace = options[:workspace]
+    project = "#{workspace}/#{scheme}.xcodeproj"
+    scheme = "TestForJenkins"
+
+    Dir.chdir(workspace)
+    FileUtils.mkpath 'ipa'
+    outputPath = "#{workspace}/ipa/"
+
+    gym(
+      clean:true,
+      include_bitcode: false,
+      project:"#{project}",
+      scheme:"#{scheme}",
+      configuration:"Release",
+      export_method:"enterprise",
+      archive_path:"#{outputPath}/#{scheme}.xcarchive",
+      output_directory:"#{outputPath}",
+      output_name:"TestForJenkins-iPhone-1.0.0-TestForJenkins"
+      )
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
